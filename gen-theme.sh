@@ -1,14 +1,18 @@
 #/usr/bin/env bash
 
-themedata="/home/booster/.local/github/booster-themes"
 themename=purplerage
+themeauthor="Booster"
+themepkg="Purple-Rage"
+themeinput="/home/booster/.local/github/booster-themes"
+themeoutput="$themeinput/output/$themepkg"
 
 function compiletheme {
-  sed -i 's|^Name=.*$|Name=Booster-Purple-Rage|' $themedata/output/index.theme
+  cp $themeinput/common/index.theme $themeoutput/index.theme
+  sed -i 's|^Name=.*$|Name=Booster-Purple-Rage|' $themeoutput/index.theme
 }
 
 function nodeinstall {
-  if [ ! -d "$themedata/node_modules" ]; then
+  if [ ! -d "$themeinput/node_modules" ]; then
     npm install gulp-sass gulp-rename gulp
   fi
 }
@@ -24,51 +28,46 @@ function convertsvg {
 }
 
 function convertshell {
-  cd "$themedata/output/gnome-shell/3.22/assets/checkbox"
+  cd "$themeoutput/gnome-shell/assets/checkbox"
   convertsvg
-  cd "$themedata/output/gnome-shell/3.22/assets/dash"
+  cd "$themeoutput/gnome-shell/assets/dash"
   convertsvg
-  cd "$themedata/output/gnome-shell/3.22/assets/menu"
+  cd "$themeoutput/gnome-shell/assets/menu"
   convertsvg
-  cd "$themedata/output/gnome-shell/3.22/assets/misc"
+  cd "$themeoutput/gnome-shell/assets/misc"
   convertsvg
-  cd "$themedata/output/gnome-shell/3.22/assets/panel"
+  cd "$themeoutput/gnome-shell/assets/panel"
   convertsvg
-  cd "$themedata/output/gnome-shell/3.22/assets/switch"
+  cd "$themeoutput/gnome-shell/assets/switch"
   convertsvg
 }
 
 
 function compileshell {
-  mkdir -p "$themedata/output/gnome-shell/3.22/"
-  cp -r "$themedata/common/gnome-shell/3.22/common-assets" "$themedata/output/gnome-shell/3.22/assets-$themename"
-  cp -r "$themedata/common/gnome-shell/3.22/dark-assets/checkbox" "$themedata/output/gnome-shell/3.22/assets-$themename"
-  cp -r "$themedata/common/gnome-shell/3.22/dark-assets/menu" "$themedata/output/gnome-shell/3.22/assets-$themename"
-  cp -r "$themedata/common/gnome-shell/3.22/dark-assets/misc" "$themedata/output/gnome-shell/3.22/assets-$themename"
-  cp -r "$themedata/common/gnome-shell/3.22/dark-assets/switch" "$themedata/output/gnome-shell/3.22/assets-$themename"
-  cp -r "$themedata/common/gnome-shell/3.22/gnome-shell-dark.css" "$themedata/output/gnome-shell/3.22/gnome-shell-$themename.css"
+  mkdir -p "$themeoutput/gnome-shell/"
+  cp -r "$themeinput/common/gnome-shell/3.22/assets" "$themeoutput/gnome-shell/assets"
+  cp -r "$themeinput/common/gnome-shell/3.22/gnome-shell-dark.css" "$themeoutput/gnome-shell/gnome-shell.css"
   convertshell
 }
 
 function compilegtk2 {
-  mkdir -p "$themedata/output/gtk-2.0/"
-  rm $themedata/common/gtk-2.0/assets/*.png
-  cd "$themedata/common/gtk-2.0"
+  mkdir -p "$themeoutput/gtk-2.0/"
+  cd "$themeinput/common/gtk-2.0"
   sh ./render-assets.sh
 
-  cp -r "$themedata/common/gtk-2.0/assets/" "$themedata/output/gtk-2.0/assets-$themename"
-  cp $themedata/common/gtk-2.0/*.rc "$themedata/output/gtk-2.0/"
-  cp -r "$themedata/common/gtk-2.0/gtkrc" "$themedata/output/gtk-2.0/gtkrc-$themename"
+  cp -r "$themeinput/common/gtk-2.0/assets/" "$themeoutput/gtk-2.0/assets"
+  cp $themeinput/common/gtk-2.0/*.rc "$themeoutput/gtk-2.0/"
+  cp -r "$themeinput/common/gtk-2.0/gtkrc" "$themeoutput/gtk-2.0/gtkrc"
+  cp -r "$themeinput/common/gtk-2.0/menubar-toolbar" "$themeoutput/gtk-2.0/"
 }
 
 function compilegtk3 {
-  mkdir -p "$themedata/output/gtk-3.0/3.22/"
-  rm $themedata/common/gtk-3.0/3.22/assets/*.png
-  cd "$themedata/common/gtk-3.0/3.22/"
+  mkdir -p "$themeoutput/gtk-3.0/"
+  cd "$themeinput/common/gtk-3.0/3.22/"
   sh ./render-assets.sh
 
-  cp -r "$themedata/common/gtk-3.0/3.22/assets/" "$themedata/output/gtk-3.0/3.22/assets-$themename/"
-  cp -r "$themedata/common/gtk-3.0/3.22/gtk-solid-dark.css" "$themedata/output/gtk-3.0/3.22/gtk-$themename.css"
+  cp -r "$themeinput/common/gtk-3.0/3.22/assets/" "$themeoutput/gtk-3.0/"
+  cp -r "$themeinput/common/gtk-3.0/3.22/gtk-solid-dark.css" "$themeoutput/gtk-3.0/gtk.css"
 }
 
 function compileall {
@@ -78,7 +77,8 @@ function compileall {
   compiletheme
 }
 
-rm -rf $themedata/output/
+rm -rf $themeinput/output/
+mkdir -p "$themeoutput"
 
 nodeinstall
 gulp
