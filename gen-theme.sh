@@ -1,6 +1,11 @@
 #/usr/bin/env bash
+
 themedata="/home/booster/.local/github/booster-themes"
 themename=purplerage
+
+function compiletheme {
+  sed -i 's|^Name=.*$|Name=Booster-Purple-Rage|' $themedata/output/index.theme
+}
 
 function convertsvg {
   for f in *.svg
@@ -41,6 +46,7 @@ function compileshell {
 
 function compilegtk2 {
   mkdir -p "$themedata/output/gtk-2.0/"
+  rm $themedata/common/gtk-2.0/assets/*.png
   cd "$themedata/common/gtk-2.0"
   sh ./render-assets.sh
 
@@ -51,6 +57,7 @@ function compilegtk2 {
 
 function compilegtk3 {
   mkdir -p "$themedata/output/gtk-3.0/3.22/"
+  rm $themedata/common/gtk-3.0/3.22/assets/*.png
   cd "$themedata/common/gtk-3.0/3.22/"
   sh ./render-assets.sh
 
@@ -58,12 +65,9 @@ function compilegtk3 {
   cp -r "$themedata/common/gtk-3.0/3.22/gtk-solid-dark.css" "$themedata/output/gtk-3.0/3.22/gtk-$themename.css"
 }
 
-function compiletheme {
-  
-}
-
 rm -rf $themedata/output/
 
 compileshell
 compilegtk2
 compilegtk3
+compiletheme
