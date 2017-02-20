@@ -7,6 +7,12 @@ function compiletheme {
   sed -i 's|^Name=.*$|Name=Booster-Purple-Rage|' $themedata/output/index.theme
 }
 
+function nodeinstall {
+  if [ ! -d "$themedata/node_modules" ]; then
+    npm install gulp-sass gulp-rename gulp
+  fi
+}
+
 function convertsvg {
   for f in *.svg
   do
@@ -65,9 +71,15 @@ function compilegtk3 {
   cp -r "$themedata/common/gtk-3.0/3.22/gtk-solid-dark.css" "$themedata/output/gtk-3.0/3.22/gtk-$themename.css"
 }
 
+function compileall {
+  compileshell
+  compilegtk2
+  compilegtk3
+  compiletheme
+}
+
 rm -rf $themedata/output/
 
-compileshell
-compilegtk2
-compilegtk3
-compiletheme
+nodeinstall
+gulp
+compileall
