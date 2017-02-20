@@ -14,7 +14,6 @@ do
 if [ -f $ASSETS_DIR/$i.png ]; then
     echo $ASSETS_DIR/$i.png exists.
 else
-    echo
     echo Rendering $ASSETS_DIR/$i.png
     $INKSCAPE --export-id=$i \
               --export-id-only \
