@@ -1,7 +1,7 @@
 //This is the RIGHT PLACE to edit the stylesheet
 
 $panel-corner-radius: 0px;
-$asset_path: if($variant == 'dark', dark-assets, light-assets);
+$asset_path: if($variant == 'dark', assets, light-assets);
 
 /* Copyright 2009, 2015 Red Hat, Inc.
  *
@@ -173,14 +173,14 @@ StScrollBar {
   StBin {
     width: 16px;
     height: 16px;
-    background-image: url("#{$asset_path}/checkbox/checkbox-unchecked.svg");
+    background-image: url("#{$asset_path}/checkbox/checkbox-unchecked.png");
   }
 
-  &:focus StBin { background-image: url("#{$asset_path}/checkbox/checkbox-unchecked-focused.svg"); }
+  &:focus StBin { background-image: url("#{$asset_path}/checkbox/checkbox-unchecked-focused.png"); }
 
-  &:checked StBin { background-image: url("#{$asset_path}/checkbox/checkbox-checked.svg"); }
+  &:checked StBin { background-image: url("#{$asset_path}/checkbox/checkbox-checked.png"); }
 
-  &:focus:checked StBin { background-image: url("#{$asset_path}/checkbox/checkbox-checked-focused.svg"); }
+  &:focus:checked StBin { background-image: url("#{$asset_path}/checkbox/checkbox-checked-focused.png"); }
 }
 
 //
@@ -190,14 +190,14 @@ StScrollBar {
   width: 50px;
   height: 20px;
   background-size: contain;
-  background-image: url("#{$asset_path}/switch/switch-off.svg");
+  background-image: url("#{$asset_path}/switch/switch-off.png");
 
-  &:checked { background-image: url("#{$asset_path}/switch/switch-on.svg"); }
+  &:checked { background-image: url("#{$asset_path}/switch/switch-on.png"); }
 
   .popup-menu-item.selected & {
-    background-image: url("common-assets/switch/switch-off-selected.svg");
+    background-image: url("assets/switch/switch-off-selected.png");
 
-    &:checked { background-image: url("common-assets/switch/switch-on-selected.svg"); }
+    &:checked { background-image: url("assets/switch/switch-on-selected.png"); }
   }
 }
 
@@ -221,7 +221,7 @@ StScrollBar {
   color: $fg_color;
   background-color: transparentize($bg_color, 1);
   border: none;
-  border-image: url("#{$asset_path}/misc/modal.svg") 9 9 9 67;
+  border-image: url("#{$asset_path}/misc/modal.png") 9 9 9 67;
   padding: 0 5px 6px 5px;
 
   .modal-dialog-content-box {
@@ -622,13 +622,13 @@ StScrollBar {
 .popup-menu {
   min-width: 15em;
   color: $fg_color;
-  border-image: url("#{$asset_path}/menu/menu.svg") 9 9 9 9;
+  border-image: url("#{$asset_path}/menu/menu.png") 9 9 9 9;
 
   .popup-menu-arrow { } //defined globally in the TOP BAR
   .popup-sub-menu {
     background: none;
     box-shadow: none;
-    border-image: url("#{$asset_path}/menu/submenu.svg") 9 9 9 9;
+    border-image: url("#{$asset_path}/menu/submenu.png") 9 9 9 9;
   }
 
   .popup-menu-content { padding: 1em 0em 1em 0em; }
@@ -642,13 +642,13 @@ StScrollBar {
       font-weight: normal;
       background: none;
       box-shadow: none;
-      border-image: url("#{$asset_path}/menu/submenu-open.svg") 9 9 9 9;
+      border-image: url("#{$asset_path}/menu/submenu-open.png") 9 9 9 9;
     }
 
     &:active, &.selected {
       color: $selected_fg_color;
       background-color: transparent;
-      border-image: url("common-assets/menu/menu-hover.svg") 9 9 1 1;
+      border-image: url("assets/menu/menu-hover.png") 9 9 1 1;
     }
 
     &:insensitive {
@@ -699,7 +699,7 @@ StScrollBar {
   margin: 0;
   background-color: transparent;
   border: none;
-  border-image: url("common-assets/menu/menu-separator.svg") 1 1 1 1;
+  border-image: url("assets/menu/menu-separator.png") 1 1 1 1;
 }
 
 // Background menu
@@ -726,7 +726,7 @@ StScrollBar {
   background: none;
   border: none;
   border-radius: 5px;
-  border-image: url("common-assets/misc/osd.svg") 9 9 9 9;
+  border-image: url("assets/misc/osd.png") 9 9 9 9;
 
 .osd-monitor-label { font-size: 3em; }
 
@@ -748,7 +748,7 @@ StScrollBar {
   background: none;
   border: none;
   border-radius: 5px;
-	border-image: url("common-assets/misc/osd.svg") 9 9 9 9;
+	border-image: url("assets/misc/osd.png") 9 9 9 9;
   padding: 12px;
 }
 
@@ -763,7 +763,7 @@ StScrollBar {
 .switcher-list {
   background: none;
   border: none;
-  border-image: url("common-assets/misc/bg.svg") 9 9 9 9;
+  border-image: url("assets/misc/bg.png") 9 9 9 9;
   border-radius: 3px;
   padding: 20px;
 
@@ -836,7 +836,7 @@ StScrollBar {
   &-group { padding: 12px; }
 
   &-container {
-    border-image: url("common-assets/misc/bg.svg") 9 9 9 9;
+    border-image: url("assets/misc/bg.png") 9 9 9 9;
     border-radius: 3px;
     padding: 20px;
     padding-bottom: 24px;
@@ -852,11 +852,11 @@ StScrollBar {
 }
 
 .ws-switcher-active-up {
-  background-image: url("common-assets/misc/ws-switch-arrow-up.png");
+  background-image: url("assets/misc/ws-switch-arrow-up.png");
 }
 
 .ws-switcher-active-down {
-  background-image: url("common-assets/misc/ws-switch-arrow-down.png");
+  background-image: url("assets/misc/ws-switch-arrow-down.png");
 }
 
 .ws-switcher-box {
@@ -898,7 +898,7 @@ StScrollBar {
   background-gradient-direction: none;
   background-color: transparent;
   border-bottom-width: 0;
-  border-image: url('common-assets/panel/panel.svg') 1 1 1 1;
+  border-image: url('assets/panel/panel.png') 1 1 1 1;
 
   // Fix dynamic top bar extension
   &.dynamic-top-bar-white-btn { border-image: none; }
@@ -910,7 +910,7 @@ StScrollBar {
     border-image: none;
   }
 
-  &:overview { border-image: url('common-assets/panel/panel-overview.svg') 1 1 1 1; }
+  &:overview { border-image: url('assets/panel/panel-overview.png') 1 1 1 1; }
 
   #panelLeft, #panelCenter { // spacing between activities<>app menu and such
     spacing: 8px;
@@ -1001,7 +1001,7 @@ StScrollBar {
 #panel #panelActivities.panel-button {
 
   > * {
-    background-image: url("common-assets/panel/activities.svg");
+    background-image: url("assets/panel/activities.png");
     background-position: center top;
     width: 24px;
     height: 24px;
@@ -1020,7 +1020,7 @@ StScrollBar {
     border-bottom-width: 1px;
     border-color: transparent;
 
-    > * { background-image: url("common-assets/panel/activities-active.svg"); }
+    > * { background-image: url("assets/panel/activities-active.png"); }
   }
 }
 
@@ -1037,7 +1037,7 @@ StScrollBar {
 }
 
 #appMenu {
-  spinner-image: url("common-assets/misc/process-working.svg");
+  spinner-image: url("assets/misc/process-working.png");
   spacing: 4px;
   padding: 0 8px;
 
@@ -1156,35 +1156,35 @@ StScrollBar {
 
 //arrow back
 .calendar-change-month-back {
-  background-image: url("#{$asset_path}/misc/calendar-arrow-left.svg");
+  background-image: url("#{$asset_path}/misc/calendar-arrow-left.png");
 
-  &:focus, &:hover { background-image: url("#{$asset_path}/misc/calendar-arrow-left-hover.svg"); }
+  &:focus, &:hover { background-image: url("#{$asset_path}/misc/calendar-arrow-left-hover.png"); }
 
-  &:active { background-image: url("#{$asset_path}/misc/calendar-arrow-left.svg"); }
+  &:active { background-image: url("#{$asset_path}/misc/calendar-arrow-left.png"); }
 
   &:rtl {
-    background-image: url("#{$asset_path}/misc/calendar-arrow-right.svg");
+    background-image: url("#{$asset_path}/misc/calendar-arrow-right.png");
 
-    &:focus, &:hover { background-image: url("#{$asset_path}/misc/calendar-arrow-right-hover.svg"); }
+    &:focus, &:hover { background-image: url("#{$asset_path}/misc/calendar-arrow-right-hover.png"); }
 
-    &:active { background-image: url("#{$asset_path}/misc/calendar-arrow-right.svg"); }
+    &:active { background-image: url("#{$asset_path}/misc/calendar-arrow-right.png"); }
   }
 }
 
 //arrow forward
 .calendar-change-month-forward {
-  background-image: url("#{$asset_path}/misc/calendar-arrow-right.svg");
+  background-image: url("#{$asset_path}/misc/calendar-arrow-right.png");
 
-  &:focus, &:hover { background-image: url("#{$asset_path}/misc/calendar-arrow-right-hover.svg"); }
+  &:focus, &:hover { background-image: url("#{$asset_path}/misc/calendar-arrow-right-hover.png"); }
 
-  &:active { background-image: url("#{$asset_path}/misc/calendar-arrow-right.svg"); }
+  &:active { background-image: url("#{$asset_path}/misc/calendar-arrow-right.png"); }
 
   &:rtl {
-    background-image: url("#{$asset_path}/misc/calendar-arrow-left.svg");
+    background-image: url("#{$asset_path}/misc/calendar-arrow-left.png");
 
-    &:focus, &:hover { background-image: url("#{$asset_path}/misc/calendar-arrow-left-hover.svg"); }
+    &:focus, &:hover { background-image: url("#{$asset_path}/misc/calendar-arrow-left-hover.png"); }
 
-    &:active { background-image: url("#{$asset_path}/misc/calendar-arrow-left.svg"); }
+    &:active { background-image: url("#{$asset_path}/misc/calendar-arrow-left.png"); }
   }
 }
 
@@ -1285,17 +1285,17 @@ StScrollBar {
       border-radius: 0px;
       color: transparent;
       background-color: transparent;
-      background-image: url('#{$asset_path}/misc/message-close.svg');
+      background-image: url('#{$asset_path}/misc/message-close.png');
     }
     &:hover > StIcon {
       color: transparent;
       background-color: transparent;
-      background-image: url('#{$asset_path}/misc/message-close-hover.svg');
+      background-image: url('#{$asset_path}/misc/message-close-hover.png');
     }
     &:active > StIcon {
       color: transparent;
       background-color: transparent;
-      background-image: url('#{$asset_path}/misc/message-close-active.svg');
+      background-image: url('#{$asset_path}/misc/message-close-active.png');
     }
 
   }
@@ -1304,16 +1304,16 @@ StScrollBar {
 .message {
   padding: 4px;
   color: $fg_color;
-  border-image: url("#{$asset_path}/misc/message.svg") 9 9 9 9;
+  border-image: url("#{$asset_path}/misc/message.png") 9 9 9 9;
 
   &:hover, &:focus {
     color: $fg_color;
-    border-image: url("#{$asset_path}/misc/message-hover.svg") 9 9 9 9;
+    border-image: url("#{$asset_path}/misc/message-hover.png") 9 9 9 9;
   }
 
   &:active {
     color: $selected_fg_color;
-    border-image: url("#{$asset_path}/misc/message-active.svg") 9 9 9 9;
+    border-image: url("#{$asset_path}/misc/message-active.png") 9 9 9 9;
   }
 
   &-icon-bin {
@@ -1376,10 +1376,10 @@ StScrollBar {
 .ripple-box {
   width: 52px;
   height: 52px;
-  background-image: url("common-assets/misc/corner-ripple-ltr.svg");
+  background-image: url("assets/misc/corner-ripple-ltr.png");
   background-size: contain;
 
-  &:rtl { background-image: url("common-assets/misc/corner-ripple-rtl.svg"); }
+  &:rtl { background-image: url("assets/misc/corner-ripple-rtl.png"); }
 }
 
 // not really top bar only
@@ -1391,20 +1391,20 @@ StScrollBar {
 //Close buttons
 //
 .window-close {
-  background-image: url("common-assets/misc/close.svg");
+  background-image: url("assets/misc/close.png");
   background-size: 26px;
   height: 26px;
   width: 26px;
 
   &:hover {
-    background-image: url("common-assets/misc/close-hover.svg");
+    background-image: url("assets/misc/close-hover.png");
     background-size: 26px;
     height: 26px;
     width: 26px;
   }
 
   &:active {
-    background-image: url("common-assets/misc/close-active.svg");
+    background-image: url("assets/misc/close-active.png");
     background-size: 26px;
     height: 26px;
     width: 26px;
@@ -1578,7 +1578,7 @@ StScrollBar {
 .search-provider-icon-more {
   width: 16px;
   height: 16px;
-  background-image: url("common-assets/misc/more-results.svg");
+  background-image: url("assets/misc/more-results.png");
 }
 
 //
@@ -1600,7 +1600,7 @@ StScrollBar {
   .top &, .bottom & { padding: 0; }
 
   .placeholder {
-    background-image: url("common-assets/dash/dash-placeholder.svg");
+    background-image: url("assets/dash/dash-placeholder.png");
     background-size: contain;
     height: 24px;
   }
@@ -1668,7 +1668,7 @@ StScrollBar {
 
   @each $var in 1, 2, 3, 4 {
     .running#{$var} .app-well-app-running-dot {
-      background-image: url("common-assets/dash/running#{$var}.svg");
+      background-image: url("assets/dash/running#{$var}.png");
     }
   }
 }
@@ -1833,13 +1833,13 @@ StScrollBar {
   .page-indicator-icon {
     width: 18px;
     height: 18px;
-    background-image: url(common-assets/misc/page-indicator-inactive.svg);
+    background-image: url(assets/misc/page-indicator-inactive.png);
   }
 
-  &:hover .page-indicator-icon { background-image: url(common-assets/misc/page-indicator-hover.svg); }
-  &:active .page-indicator-icon { background-image: url(common-assets/misc/page-indicator-active.svg); }
+  &:hover .page-indicator-icon { background-image: url(assets/misc/page-indicator-hover.png); }
+  &:active .page-indicator-icon { background-image: url(assets/misc/page-indicator-active.png); }
   &:checked .page-indicator-icon,
-  &:checked:active { background-image: url(common-assets/misc/page-indicator-checked.svg); }
+  &:checked:active { background-image: url(assets/misc/page-indicator-checked.png); }
 }
 
 .no-frequent-applications-label { @extend %status_text; }
@@ -1865,13 +1865,13 @@ StScrollBar {
 .workspace-thumbnails,
 .workspace-thumbnails-left:rtl {
   padding-right: 7px;
-  border-image: url("common-assets/dash/dash-right.svg") 9 9 9 9;
+  border-image: url("assets/dash/dash-right.png") 9 9 9 9;
 }
 
 .workspace-thumbnails:rtl,
 .workspace-thumbnails-left {
   padding-left: 7px;
-  border-image: url("common-assets/dash/dash-left.svg") 9 9 9 9;
+  border-image: url("assets/dash/dash-left.png") 9 9 9 9;
 }
 
 .workspace-thumbnail-indicator {
@@ -1910,7 +1910,7 @@ StScrollBar {
   color: $fg_color;
   background-color: transparent;
   border: 1px solid transparent;
-  border-image: url("#{$asset_path}/menu/menu.svg") 9 9 9 9;
+  border-image: url("#{$asset_path}/menu/menu.png") 9 9 9 9;
 
   .notification-icon { padding: 5px; }
 
@@ -2335,7 +2335,7 @@ $legacy_icon_size: 24px;
   padding: 8px 8px 10px 8px;
   background-color: transparentize(black, 0.3);
   border: 1px solid black;
-  border-image: url("common-assets/misc/bg.svg") 9 9 9 9;
+  border-image: url("assets/misc/bg.png") 9 9 9 9;
   border-radius: 2px;
   color: $osd_fg_color;
 
